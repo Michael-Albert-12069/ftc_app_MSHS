@@ -19,6 +19,8 @@ public class AutonomousJewelsBlue extends LinearOpMode {
     private int targetposition;
     private ColorSensor sensorColor;
     private Servo colorServo;
+    double sensorRed;
+    double sensorBlue;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -32,25 +34,26 @@ public class AutonomousJewelsBlue extends LinearOpMode {
 
 
         leftmotor.setDirection(DcMotor.Direction.REVERSE);
-        double sensorBlue = sensorColor.blue();
-        double sensorRed = sensorColor.red();
+         sensorBlue = sensorColor.blue();
+         sensorRed = sensorColor.red();
 
         waitForStart();
         OpenServo(servoOpen);
 
-        if(sensorBlue<maxBlue & sensorBlue>minBlue){
+        if(sensorRed<sensorBlue){
 
-            Drive4ward(DRIVE_POWER, 1000);
+            Drive4ward(DRIVE_POWER, 750);
             CloseServo(servoClose);
-            turnRight(DRIVE_POWER, 500);
+            turnLeft(DRIVE_POWER, 500);
             Drive4ward(DRIVE_POWER, 500);
+            stopDrive(ZERO_SPEED, 300);
         }
         else{
-
-            turnRight(DRIVE_POWER, 500);
-            CloseServo(servoClose);
-            Drive4ward(DRIVE_POWER, 1000);
-
+            if(sensorRed<sensorBlue) {
+                turnRight(DRIVE_POWER, 500);
+                CloseServo(servoClose);
+                Drive4ward(DRIVE_POWER, 1000);
+            }
         }
 
 

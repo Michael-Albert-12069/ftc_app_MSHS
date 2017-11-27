@@ -12,13 +12,15 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@Autonomous(name = "Auto. Jewels Red", group = "Autonomous")
+@Autonomous(name = "Auto. Jewels Blue", group = "Autonomous")
 public class AutonomousJewelsRed extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
     private int targetposition;
     private ColorSensor sensorColor;
     private Servo colorServo;
+    double sensorRed;
+    double sensorBlue;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -32,21 +34,22 @@ public class AutonomousJewelsRed extends LinearOpMode {
 
 
         leftmotor.setDirection(DcMotor.Direction.REVERSE);
-        double sensorBlue = sensorColor.blue();
-        double sensorRed = sensorColor.red();
+         sensorBlue = sensorColor.blue();
+         sensorRed = sensorColor.red();
 
         waitForStart();
         OpenServo(servoOpen);
 
-        if(sensorRed<maxRed & sensorRed>minRed){
+        if(sensorBlue<sensorRed){
 
-            Drive4ward(DRIVE_POWER, 1000);
+            Drive4ward(DRIVE_POWER, 750);
             CloseServo(servoClose);
-            turnRight(DRIVE_POWER, 500);
+            turnLeft(DRIVE_POWER, 500);
             Drive4ward(DRIVE_POWER, 500);
+            stopDrive(ZERO_SPEED, 300);
         }
         else{
-
+            if(sensorRed<sensorBlue)
             turnRight(DRIVE_POWER, 500);
             CloseServo(servoClose);
             Drive4ward(DRIVE_POWER, 1000);
@@ -56,8 +59,8 @@ public class AutonomousJewelsRed extends LinearOpMode {
 
 
     }
-    double servoOpen;
-    double servoClose;
+    double servoOpen = 50;
+    double servoClose = 180;
 
     double DRIVE_POWER = -.75;
     double ZERO_SPEED = 00.00;
@@ -65,8 +68,8 @@ public class AutonomousJewelsRed extends LinearOpMode {
     double minBlue = 70;
     double maxBlue = 200;
 
-    double minRed = 100;
-    double maxRed = 200;
+    double minRed = 0;
+    double maxRed = 0;
 
     public void Drive4ward(double power, long time) throws InterruptedException {
         leftmotor.setPower(power);
