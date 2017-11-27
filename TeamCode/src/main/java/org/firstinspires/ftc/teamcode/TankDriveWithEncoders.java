@@ -15,50 +15,56 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@TeleOp(name = "Michael - TeleOp Tank", group = "TeleOp")
+@TeleOp(name = "Michael - TeleOp Tank ServoArm", group = "TeleOp")
 //@Disabled
 public class TankDriveWithEncoders extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
-    private Servo rightclaw;
-    private  Servo leftclaw;
+    private DcMotor armmotor;
+    private Servo armclaw;
+
     @Override
     public void runOpMode() throws InterruptedException {
 
         leftmotor = hardwareMap.dcMotor.get("leftmotor");
         rightmotor = hardwareMap.dcMotor.get("rightmotor");
-        rightclaw = hardwareMap.servo.get("rightclaw");
-        leftclaw = hardwareMap.servo.get("leftclaw");
-
+        leftmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armmotor = hardwareMap.dcMotor.get("arm");
+        armmotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armclaw = hardwareMap.servo.get("armclaw");
         leftmotor.setDirection(DcMotor.Direction.REVERSE);
 
 
         waitForStart();
         while ((opModeIsActive())) {
+            armclaw.setPosition(128);
             //servo left max= 0; close = 140
             //servo right max= 145; close = 0
 
-            if(gamepad1.a){
+            double armpower= gamepad2.right_trigger/5;
+            armmotor.setPower(armpower);
+
+
+            if(gamepad2.a){
 //            open
-                leftclaw.setPosition(0);
-                rightclaw.setPosition(145);
+armclaw.setPosition(250);
             }
 //            close
-            if(gamepad1.b){
-                leftclaw.setPosition(140);
-                rightclaw.setPosition(0);
+            if(gamepad2.b){
+armclaw.setPosition(200);
             }
 
- /*           motorRight.setPower(right);
-            motorLeft.setPower(left);
-       //     Before this you have to make sure to “clip” the joystick values to they never go above 1 and below -1, because those are the only value range that the motors now take.  To do this:
-// clip the right/left values so that the values never exceed +/- 1
-            right = Range.clip(right, -1, 1);
-            left = Range.clip(left, -1, 1); **/
 
-                 leftmotor.setPower(-gamepad1.left_stick_y);
-                 rightmotor.setPower(-gamepad1.right_stick_y);
 
+            double leftspeed = Math.round(-gamepad1.left_stick_y* 10);
+            double leftspeedinput = leftspeed/10;
+
+            double rightspeed = Math.round(-gamepad1.right_stick_y*10);
+            double rightspeedinput = rightspeed/10;
+
+            rightmotor.setPower(rightspeedinput);
+            leftmotor.setPower(leftspeedinput);
             telemetry.update();
             idle();
         }
