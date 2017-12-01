@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@Autonomous(name = "Auto. Jewels Blue", group = "Autonomous")
+@Autonomous(name = "Auto. Jewels RED", group = "Autonomous")
 public class AutonomousJewelsRed extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
