@@ -14,11 +14,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp(name = "Michael - TeleOp Tank ServoTEST", group = "TeleOp")
 //@Disabled
 public class SERVOTEST extends LinearOpMode {
-    private DcMotor leftmotor;
-    private DcMotor rightmotor;
-    private DcMotor armmotor;
+
     private Servo armclaw;
-    private  Servo leftclaw;
+
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -32,16 +30,16 @@ public class SERVOTEST extends LinearOpMode {
             //servo right max= 145; close = 0
 
             double currentposition = armclaw.getPosition();
-            double armpower= gamepad2.right_trigger/5;
-            armmotor.setPower(armpower);
-
 
             if(gamepad2.a){
 //            open
-                leftclaw.setPosition(currentposition +5);
-
+                armclaw.setPosition(0.00);
+            }else {
+//            close
+                if (gamepad2.b) {
+                    armclaw.setPosition(0.28);
+                }
             }
-//
 
 
 
@@ -53,10 +51,9 @@ public class SERVOTEST extends LinearOpMode {
             left = Range.clip(left, -1, 1); **/
 
 
-        //
+        //this build team is crap, pls help
 
-                 leftmotor.setPower(-gamepad1.left_stick_y);
-                 rightmotor.setPower(-gamepad1.right_stick_y);
+            currentposition = armclaw.getPosition();
             String currentpos = Double.toString(currentposition);
             telemetry.addLine(currentpos);
             telemetry.update();

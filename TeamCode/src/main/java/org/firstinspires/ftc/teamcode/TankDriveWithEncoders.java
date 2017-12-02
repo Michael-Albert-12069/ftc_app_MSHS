@@ -46,27 +46,27 @@ public class TankDriveWithEncoders extends LinearOpMode {
             //servo left max= 0; close = 140
             //servo right max= 145; close = 0
 
-            armpowerup= gamepad1.right_trigger ;
+            armpowerup= gamepad2.right_trigger ;
             armmotor.setPower(armpowerup);
-            armpowerdown= -gamepad1.left_trigger/2;
+            armpowerdown= -gamepad2.left_trigger/2;
             armmotor.setPower(armpowerdown);
 
 
-            if(gamepad1.a){
+            if(gamepad2.a){
 //            open
-                    armclaw.setPosition(0.05);
+                armclaw.setPosition(0.00);
             }else {
 //            close
-                if (gamepad1.b) {
-                    armclaw.setPosition(0.33);
+                if (gamepad2.b) {
+                    armclaw.setPosition(0.28);
                 }
             }
 
 
 
 
-            rightmotor.setPower(gamepad1.right_stick_y/1.5);
-            leftmotor.setPower(gamepad1.left_stick_y/1.5);
+            rightmotor.setPower(gamepad1.right_stick_y/1.1);
+            leftmotor.setPower(gamepad1.left_stick_y/1.1);
             telemetry.update();
             idle();
         }

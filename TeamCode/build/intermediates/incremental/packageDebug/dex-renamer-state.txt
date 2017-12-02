@@ -1,4 +1,4 @@
-#Fri Dec 01 19:56:17 PST 2017
+#Sat Dec 02 13:51:21 PST 2017
 base.0=/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
