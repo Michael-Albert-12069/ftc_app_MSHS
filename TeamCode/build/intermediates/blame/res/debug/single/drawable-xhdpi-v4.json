@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png",
+        "source": "/Users/michaelalbert/ftc_app_MSHS/FtcRobotController/build/intermediates/bundles/default/res/drawable-xhdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_robotcontroller.png",
+        "source": "/Users/michaelalbert/ftc_app_MSHS/FtcRobotController/build/intermediates/bundles/default/res/drawable-xhdpi-v4/icon_robotcontroller.png"
+    },
+    {
+        "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_menu.png",
+        "source": "/Users/michaelalbert/ftc_app_MSHS/FtcRobotController/build/intermediates/bundles/default/res/drawable-xhdpi-v4/icon_menu.png"
+    }
+]

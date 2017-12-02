@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/michaelalbert/ftc_app_MSHS/FtcRobotController/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="63096d280a6d0792ddbe5601216c3bc2bb685e8c">
+        <dex dex="/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/pre-dexed/debug/classes_2484f185d492f56b77da8ef2dd4e7389044a9665.jar" />
+    </item>
+
+</items>

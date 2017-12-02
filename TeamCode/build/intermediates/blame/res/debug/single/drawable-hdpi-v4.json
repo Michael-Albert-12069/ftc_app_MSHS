@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4/button_shape.xml",
+        "source": "/Users/michaelalbert/.android/build-cache/85083fbf9a0888e7722edcfd18b52b6f1fe866a9/output/res/drawable-hdpi-v4/button_shape.xml"
+    },
+    {
+        "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png",
+        "source": "/Users/michaelalbert/ftc_app_MSHS/FtcRobotController/build/intermediates/bundles/default/res/drawable-hdpi-v4/ic_launcher.png"
+    }
+]
