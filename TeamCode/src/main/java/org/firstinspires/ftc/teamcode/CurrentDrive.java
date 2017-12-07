@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 @TeleOp(name = "Michael - USE THIS GUYS ", group = "TeleOp")
 //@Disabled
-public class TankDriveWithEncoders extends LinearOpMode {
+public class CurrentDrive extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
     private DcMotor armmotor;
