@@ -18,11 +18,14 @@ public class CurrentDrive extends LinearOpMode {
     private DcMotor rightmotor;
     private DcMotor armmotor;
     private Servo armclaw;
+    public boolean speed;
+    public double speedosped;
 
     @Override
     public void runOpMode() throws InterruptedException {
         double armpowerdown;
         double armpowerup;
+
         leftmotor = hardwareMap.dcMotor.get("leftmotor");
         rightmotor = hardwareMap.dcMotor.get("rightmotor");
 
@@ -38,7 +41,17 @@ public class CurrentDrive extends LinearOpMode {
 
         while ((opModeIsActive())) {
 
+            if(gamepad1.x){
+                if(speed ==true){
+                    speed=false;
+                    speedosped=0.5;
+                }
+                if (speed==false){
+                    speed=true;
+                    speedosped=1;
 
+                }
+            }
             //servo left max= 0; close = 140
             //servo right max= 145; close = 0
 
@@ -61,8 +74,8 @@ public class CurrentDrive extends LinearOpMode {
 
 
 
-            rightmotor.setPower(gamepad1.right_stick_y/1.5);
-            leftmotor.setPower(gamepad1.left_stick_y/1.5);
+            rightmotor.setPower(gamepad1.right_stick_y*speedosped);
+            leftmotor.setPower(gamepad1.left_stick_y*speedosped);
             telemetry.update();
             idle();
         }
