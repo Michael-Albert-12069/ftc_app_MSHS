@@ -32,13 +32,13 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
 
         waitForStart();
         CloseServo();
-        LiftSlide(2000);
-        Drive4ward(DRIVE_POWER, 500);
-        turnRight(DRIVE_POWER, 750);
-        Drive4ward(DRIVE_POWER, 500);
+        LiftSlide(2, "sec");
+        Drive4ward(1);
+        turnRight(1);
+        Drive4ward(1);
         stopDrive(ZERO_SPEED, 300);
         OpenServo();
-        Drive4ward(-DRIVE_POWER, 100);
+        Drive4ward(1);
 
 
     }
@@ -48,28 +48,26 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
     public void CloseServo(){
         armclaw.setPosition(0.28);
     }
-    public void LiftSlide(long time) throws InterruptedException {
+    public void LiftSlide(int time, String fam) throws InterruptedException {
         armmotor.setPower(1);
-        Thread.sleep(time);
+        Thread.sleep(time*1000);
     }
     public void OpenServo(){
         armclaw.setPosition(0.00);
     }
-    public void Drive4ward(double power, long time) throws InterruptedException {
-        leftmotor.setPower(power);
-        rightmotor.setPower(power);
-        Thread.sleep(time);
+    public void Drive4ward(int rotations) throws InterruptedException {
+        leftmotor.setTargetPosition(1440*rotations);
+        rightmotor.setTargetPosition(1440 * rotations);
+    }
+    public void turnLeft(int rotations) throws InterruptedException {
+        leftmotor.setTargetPosition(-1440 * rotations);
+        rightmotor.setTargetPosition(1440 * rotations);
+    }
 
-    }
-    public void turnLeft(double power, long time) throws InterruptedException {
-        leftmotor.setPower(-power);
-        rightmotor.setPower(power);
-        Thread.sleep(time);
-    }
-    public void turnRight(double power, long time) throws InterruptedException {
-        leftmotor.setPower(power);
-        rightmotor.setPower(-power);
-        Thread.sleep(time);
+    public void turnRight(int rotations) throws InterruptedException {
+        leftmotor.setTargetPosition(1440 * rotations);
+        rightmotor.setTargetPosition(-1440 * rotations);
+
     }
     public void stopDrive(double power, long time) throws InterruptedException {
         leftmotor.setPower(power);

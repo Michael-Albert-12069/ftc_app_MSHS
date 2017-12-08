@@ -41,15 +41,13 @@ public class CurrentDrive extends LinearOpMode {
 
         while ((opModeIsActive())) {
 
-            if(gamepad1.x){
-                if(speed ==true){
-                    speed=false;
-                    speedosped=0.5;
-                }
-                if (speed==false){
-                    speed=true;
-                    speedosped=1;
-
+            if(gamepad1.x) {
+                if (speed == true) {
+                    speed = false;
+                    speedosped = 0.5;
+                } else {
+                    speed = true;
+                    speedosped = 1;
                 }
             }
             //servo left max= 0; close = 140
