@@ -25,6 +25,7 @@ public class CurrentDrive extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         double armpowerdown;
         double armpowerup;
+        speed=true;
 
         leftmotor = hardwareMap.dcMotor.get("leftmotor");
         rightmotor = hardwareMap.dcMotor.get("rightmotor");
@@ -42,12 +43,10 @@ public class CurrentDrive extends LinearOpMode {
         while ((opModeIsActive())) {
 
             if(gamepad1.x) {
-                if (speed == true) {
-                    speed = false;
-                    speedosped = 0.5;
-                } else {
-                    speed = true;
-                    speedosped = 1;
+                speedosped = 1;
+                speed=!speed;
+                if (speed==false){
+                    speedosped=0.5;
                 }
             }
             //servo left max= 0; close = 140
