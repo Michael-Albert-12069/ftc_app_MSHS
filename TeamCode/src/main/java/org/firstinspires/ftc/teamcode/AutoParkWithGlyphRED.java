@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@Autonomous(name = "Michael - Auto. Park Glyph Blue between", group = "Autonomous")
+@Autonomous(name = "Michael - Auto. Park Glyph Right", group = "Autonomous")
 public class AutoParkWithGlyphRED extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
@@ -44,16 +44,18 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
     }
     double DRIVE_POWER = -.5;
     double ZERO_SPEED = 00.00;
+    double armclose= 0.28;
+    double armopen= armclose-0.23;
 
     public void CloseServo(){
-        armclaw.setPosition(0.28);
+        armclaw.setPosition(armclose);
     }
     public void LiftSlide(int time, String fam) throws InterruptedException {
         armmotor.setPower(1);
         Thread.sleep(time*1000);
     }
     public void OpenServo(){
-        armclaw.setPosition(0.00);
+        armclaw.setPosition(armopen);
     }
     public void Drive4ward(int rotations) throws InterruptedException {
         leftmotor.setTargetPosition(1440*rotations);
