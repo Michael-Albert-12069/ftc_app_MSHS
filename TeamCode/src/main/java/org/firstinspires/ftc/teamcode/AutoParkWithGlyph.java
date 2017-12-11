@@ -18,8 +18,8 @@ public class AutoParkWithGlyph extends LinearOpMode {
     private Servo armclaw;
     private DcMotor armmotor;
     private int targetposition;
-    double armclose= 0.28;
-    double armopen= armclose-0.23;
+    double ARMCLOSE= 0.28;
+    double ARMOPEN= ARMCLOSE-0.23;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -48,14 +48,14 @@ public class AutoParkWithGlyph extends LinearOpMode {
     double ZERO_SPEED = 00.00;
 
     public void CloseServo(){
-        armclaw.setPosition(armclose);
+        armclaw.setPosition(ARMCLOSE);
     }
     public void LiftSlide(int time, String fam) throws InterruptedException {
         armmotor.setPower(1);
         Thread.sleep(time*1000);
     }
     public void OpenServo(){
-        armclaw.setPosition(armopen);
+        armclaw.setPosition(ARMOPEN);
     }
     public void Drive4ward(int rotations) throws InterruptedException {
         leftmotor.setTargetPosition(1440 * rotations);

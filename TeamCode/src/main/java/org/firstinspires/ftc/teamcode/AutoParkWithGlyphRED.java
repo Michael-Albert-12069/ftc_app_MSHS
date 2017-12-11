@@ -44,19 +44,21 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
     }
     double DRIVE_POWER = -.5;
     double ZERO_SPEED = 00.00;
-    double armclose= 0.28;
-    double armopen= armclose-0.23;
+    double ARMCLOSE= 0.28;
+    double ARMOPEN= ARMCLOSE-0.23;
 
     public void CloseServo(){
-        armclaw.setPosition(armclose);
+        armclaw.setPosition(ARMCLOSE);
     }
+
     public void LiftSlide(int time, String fam) throws InterruptedException {
         armmotor.setPower(1);
         Thread.sleep(time*1000);
     }
     public void OpenServo(){
-        armclaw.setPosition(armopen);
+        armclaw.setPosition(ARMOPEN);
     }
+
     public void Drive4ward(int rotations) throws InterruptedException {
         leftmotor.setTargetPosition(1440*rotations);
         rightmotor.setTargetPosition(1440 * rotations);

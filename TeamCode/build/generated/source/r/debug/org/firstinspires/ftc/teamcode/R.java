@@ -1163,14 +1163,15 @@ containing a value of this type.
     public static final class xml {
         public static final int advanced_rc_settings=0x7f040000;
         public static final int app_settings=0x7f040001;
-        public static final int device_filter=0x7f040002;
-        public static final int k9legacybot=0x7f040003;
-        public static final int k9usbbot=0x7f040004;
-        public static final int maxmodules=0x7f040005;
-        public static final int pushbot=0x7f040006;
-        public static final int pushbotsens=0x7f040007;
-        public static final int rev_scoot=0x7f040008;
-        public static final int squarebot=0x7f040009;
+        public static final int cataclysm12069=0x7f040002;
+        public static final int device_filter=0x7f040003;
+        public static final int k9legacybot=0x7f040004;
+        public static final int k9usbbot=0x7f040005;
+        public static final int maxmodules=0x7f040006;
+        public static final int pushbot=0x7f040007;
+        public static final int pushbotsens=0x7f040008;
+        public static final int rev_scoot=0x7f040009;
+        public static final int squarebot=0x7f04000a;
     }
     public static final class styleable {
         /** Attributes that can be used with a ColorListPreference.

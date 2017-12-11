@@ -48,12 +48,12 @@
         "source": "/Users/michaelalbert/.android/build-cache/85083fbf9a0888e7722edcfd18b52b6f1fe866a9/output/res/layout/motor.xml"
     },
     {
-        "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/layout/activity_ftc_configuration.xml",
-        "source": "/Users/michaelalbert/.android/build-cache/85083fbf9a0888e7722edcfd18b52b6f1fe866a9/output/res/layout/activity_ftc_configuration.xml"
-    },
-    {
         "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/layout/digital_devices.xml",
         "source": "/Users/michaelalbert/.android/build-cache/85083fbf9a0888e7722edcfd18b52b6f1fe866a9/output/res/layout/digital_devices.xml"
+    },
+    {
+        "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/layout/activity_ftc_configuration.xml",
+        "source": "/Users/michaelalbert/.android/build-cache/85083fbf9a0888e7722edcfd18b52b6f1fe866a9/output/res/layout/activity_ftc_configuration.xml"
     },
     {
         "merged": "/Users/michaelalbert/ftc_app_MSHS/TeamCode/build/intermediates/res/merged/debug/layout/pwms.xml",

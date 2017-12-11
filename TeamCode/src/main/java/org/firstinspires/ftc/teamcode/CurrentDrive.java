@@ -11,12 +11,13 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@TeleOp(name = "Michael - USE THIS GUYS SINGLE", group = "TeleOp")
+@TeleOp(name = "Michael - USE THIS GUYS SINGLE ZAIN", group = "TeleOp")
 //@Disabled
 public class CurrentDrive extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
     private DcMotor armmotor;
+    private DcMotor armmotordupe;
     private Servo armclaw;
     public boolean speed;
     public double speedosped;
@@ -29,7 +30,7 @@ public class CurrentDrive extends LinearOpMode {
 
         leftmotor = hardwareMap.dcMotor.get("leftmotor");
         rightmotor = hardwareMap.dcMotor.get("rightmotor");
-
+        armmotordupe = hardwareMap.dcMotor.get("armdupe");
         armmotor = hardwareMap.dcMotor.get("arm");
 
         armclaw = hardwareMap.servo.get("armclaw");
@@ -54,9 +55,14 @@ public class CurrentDrive extends LinearOpMode {
 
             armpowerup= gamepad1.right_trigger ;
             armmotor.setPower(armpowerup);
+            if (gamepad1.dpad_up){
+                armmotordupe.setPower(armpowerup);
+            }
             armpowerdown= -gamepad1.left_trigger/2;
             armmotor.setPower(armpowerdown);
-
+            if (gamepad1.dpad_down){
+                 armmotordupe.setPower(armpowerdown);
+            }
 
             if(gamepad1.a){
 //            open

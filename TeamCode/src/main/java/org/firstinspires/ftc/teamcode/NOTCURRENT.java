@@ -15,7 +15,7 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@TeleOp(name = "Michael - USE THIS GUYS ", group = "TeleOp")
+@TeleOp(name = "Michael - NA ", group = "TeleOp")
 //@Disabled
 public class NOTCURRENT extends LinearOpMode {
     private DcMotor leftmotor;
