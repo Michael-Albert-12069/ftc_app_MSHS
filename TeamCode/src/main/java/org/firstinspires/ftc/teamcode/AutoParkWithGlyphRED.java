@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@Autonomous(name = "Michael - Auto. Park Glyph Right", group = "Autonomous")
+@Autonomous(name = "Michael - Auto. Park Glyph Jewel Right", group = "Autonomous")
 public class AutoParkWithGlyphRED extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
@@ -33,9 +33,9 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
         waitForStart();
         CloseServo();
         LiftSlide(2, "sec");
-        Drive4ward(1);
-        turnRight(1);
-        Drive4ward(1);
+        Drive4ward(3);
+        turnRight(3);
+        Drive4ward(4);
         stopDrive(ZERO_SPEED, 300);
         OpenServo();
         Drive4ward(1);

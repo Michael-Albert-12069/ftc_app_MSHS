@@ -52,17 +52,17 @@ public class CurrentDrive extends LinearOpMode {
             }
             //servo left max= 0; close = 140
             //servo right max= 145; close = 0
-
+            armpowerdown= -gamepad1.left_trigger/2;
             armpowerup= gamepad1.right_trigger ;
             armmotor.setPower(armpowerup);
-            if (gamepad1.dpad_up){
-                armmotordupe.setPower(armpowerup);
-            }
-            armpowerdown= -gamepad1.left_trigger/2;
+
+                armmotordupe.setPower(-armpowerup);
+
+
             armmotor.setPower(armpowerdown);
-            if (gamepad1.dpad_down){
-                 armmotordupe.setPower(armpowerdown);
-            }
+
+                 armmotordupe.setPower(-armpowerdown);
+
 
             if(gamepad1.a){
 //            open

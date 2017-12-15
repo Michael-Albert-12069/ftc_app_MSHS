@@ -35,9 +35,9 @@ public class AutoParkWithGlyph extends LinearOpMode {
         waitForStart();
         CloseServo();
         LiftSlide(2, "sec");
-        Drive4ward(1);
-        turnLeft(1);
-        Drive4ward(1);
+        Drive4ward(3);
+        turnLeft(3);
+        Drive4ward(4);
         stopDrive(ZERO_SPEED, 300);
         OpenServo();
         Drive4ward(1);
