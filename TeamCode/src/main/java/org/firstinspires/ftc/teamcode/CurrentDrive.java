@@ -27,7 +27,7 @@ public class CurrentDrive extends LinearOpMode {
         double armpowerdown;
         double armpowerup;
         speed=true;
-
+        speedosped = 1;
         leftmotor = hardwareMap.dcMotor.get("leftmotor");
         rightmotor = hardwareMap.dcMotor.get("rightmotor");
         armmotordupe = hardwareMap.dcMotor.get("armdupe");

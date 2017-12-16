@@ -33,9 +33,13 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
         waitForStart();
         CloseServo();
         LiftSlide(2, "sec");
-        Drive4ward(3);
-        turnRight(3);
-        Drive4ward(4);
+        Turningeneral(1, 1);
+        Turningeneral(1, 0.75);
+        Turningeneral(1,1);
+        Turningeneral(1,0.75);
+        Turningeneral(1,1);
+        Turningeneral(0.5,0);
+        Turningeneral(0.375,0);
         stopDrive(ZERO_SPEED, 300);
         OpenServo();
         Drive4ward(1);
@@ -53,7 +57,7 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
 
     public void LiftSlide(int time, String fam) throws InterruptedException {
         armmotor.setPower(1);
-        Thread.sleep(time*1000);
+        Thread.sleep(time * 1000);
     }
     public void OpenServo(){
         armclaw.setPosition(ARMOPEN);
@@ -72,6 +76,11 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
         leftmotor.setTargetPosition(1440 * rotations);
         rightmotor.setTargetPosition(-1440 * rotations);
 
+    }
+    public void Turningeneral(double right, double left){
+
+        leftmotor.setTargetPosition((int) (1440 * left));
+        rightmotor.setTargetPosition((int) (1440 * right));
     }
     public void stopDrive(double power, long time) throws InterruptedException {
         leftmotor.setPower(power);
