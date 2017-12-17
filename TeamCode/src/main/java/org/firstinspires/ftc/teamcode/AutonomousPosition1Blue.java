@@ -12,8 +12,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by michaelalbert on 10/14/17.
  */
-@Autonomous(name = "Michael - Auto. Park Glyph Jewel Right", group = "Autonomous")
-public class AutoParkWithGlyphRED extends LinearOpMode {
+@Autonomous(name = "Michael - Auto. 1 Blue", group = "Autonomous")
+public class AutonomousPosition1Blue extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
     private Servo armclaw;
@@ -36,8 +36,11 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
         sensorColor = hardwareMap.colorSensor.get("color");
 
         waitForStart();
+        CloseServo();
+        LiftSlide(2, "sec");
+
         Extendsensor("open");
-        if(sensorColor.red() > sensorColor.blue()){
+        if(sensorColor.blue() > sensorColor.red()){
             Turningeneral(0, 2);
             Turningeneral(0, -2);
             Extendsensor("close");
@@ -47,8 +50,7 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
             Extendsensor("close");
         }
 
-        CloseServo();
-        LiftSlide(2, "sec");
+
         Turningeneral(1, 1);
         Turningeneral(1, 1);
         Turningeneral(2, -2);
