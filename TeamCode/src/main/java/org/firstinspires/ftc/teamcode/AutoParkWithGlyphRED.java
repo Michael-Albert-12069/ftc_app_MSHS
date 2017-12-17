@@ -5,6 +5,7 @@ package org.firstinspires.ftc.teamcode;
  */
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -16,8 +17,10 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
     private DcMotor leftmotor;
     private DcMotor rightmotor;
     private Servo armclaw;
+    private Servo colorServo;
     private DcMotor armmotor;
     private int targetposition;
+    private ColorSensor sensorColor;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -29,17 +32,28 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
         armclaw = hardwareMap.servo.get("armclaw");
         leftmotor.setDirection(DcMotor.Direction.REVERSE);
         armmotor = hardwareMap.dcMotor.get("arm");
+        colorServo = hardwareMap.servo.get("colorservo");
+        sensorColor = hardwareMap.colorSensor.get("color");
 
         waitForStart();
+        Extendsensor("open");
+        if(sensorColor.red() > sensorColor.blue()){
+            Turningeneral(0, 2);
+            Turningeneral(0, -2);
+            Extendsensor("close");
+        }else{
+            Turningeneral(0, -2);
+            Turningeneral(0, 2);
+            Extendsensor("close");
+        }
+
         CloseServo();
         LiftSlide(2, "sec");
         Turningeneral(1, 1);
-        Turningeneral(1, 0.75);
-        Turningeneral(1,1);
-        Turningeneral(1,0.75);
-        Turningeneral(1,1);
-        Turningeneral(0.5,0);
-        Turningeneral(0.375,0);
+        Turningeneral(1, 1);
+        Turningeneral(2, -2);
+        Turningeneral(1, 1);
+
         stopDrive(ZERO_SPEED, 300);
         OpenServo();
         Drive4ward(1);
@@ -50,6 +64,18 @@ public class AutoParkWithGlyphRED extends LinearOpMode {
     double ZERO_SPEED = 00.00;
     double ARMCLOSE= 0.28;
     double ARMOPEN= ARMCLOSE-0.23;
+    //add value for this later
+    double COLORCLOSE = 0;
+    double COLOROPEN = 0;
+
+    public void Extendsensor(String opnclose){
+        if (opnclose.equals("open")){
+            colorServo.setPosition(COLOROPEN);
+        }
+        if (opnclose.equals("close")){
+            colorServo.setPosition(COLORCLOSE);
+        }
+    }
 
     public void CloseServo(){
         armclaw.setPosition(ARMCLOSE);
